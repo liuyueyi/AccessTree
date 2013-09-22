@@ -7,7 +7,7 @@
 #include "AttributeTree.h"
 #include <sys/time.h>
 #include <fstream>
-/*
+/**
  * 迭代先序遍历二叉树，主要是来判断属性树是否构建成功
  */
 void search(node *root)
@@ -19,7 +19,7 @@ void search(node *root)
         search(root->rchild);
 }
 
-/*
+/**
  * 回收构造树的内存空间
  */
 void delete_tree(pnode & root)
@@ -35,6 +35,9 @@ void delete_tree(pnode & root)
 }
 
 
+/**
+ *  获得访问控制策略中的下一个属性
+ */
 string next_attribute(const string & policy, int & index)
 {
 	int start = index;
