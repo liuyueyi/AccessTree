@@ -48,11 +48,11 @@ bool in_blacklist(const string & id, const string & blacklist);
 //bool judge(const string & filename, const string & policy, const string & blacklist,
 //           const Credential & credential, map<string, list<int> > & my_map);
 
-void save_tree(const string & file_name, const pnode & root, int expiration_data, map<string, list<int> > & my_map);
+void save_tree(const string & file_name, const pnode & root, int expiration_data, map<string, list<long> > & my_map);
 
-bool get_tree(const string & file_name, pnode & root, map<string, list<int> > & my_map);
+bool get_tree(const string & file_name, pnode & root, map<string, list<long> > & my_map);
 
-bool remove_tree(const string & file_name, pnode & root, map<string, list<int> > & my_map);
+bool remove_tree(const string & file_name, pnode & root, map<string, list<long> > & my_map);
 
 bool clear_tree(map<string, list<int> > & my_map);
 
