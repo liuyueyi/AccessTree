@@ -306,10 +306,10 @@ bool in_blacklist(const string & id, const string & blacklist)
  * Output:
  *		NULL
  */
-void save_tree(const string & file_name, const pnode & root, int expiration_data, map<string, list<int> > & my_map)
+void save_tree(const string & file_name, const pnode & root, int expiration_data, map<string, list<long> > & my_map)
 {
-    list<int> temp;
-    temp.push_back((int) root);
+    list<long> temp;
+    temp.push_back((long) root);
     temp.push_back(expiration_data);
 
     my_map.insert(make_pair(file_name, temp));
@@ -323,13 +323,13 @@ void save_tree(const string & file_name, const pnode & root, int expiration_data
  * Output:
  *		如果内存中存在属性树，则返回true； 否则返回false
  */
-bool get_tree(const string & file_name, pnode & root, map<string, list<int> > & my_map)
+bool get_tree(const string & file_name, pnode & root, map<string, list<long> > & my_map)
 {
-    map<string, list<int> >::iterator it = my_map.find(file_name);
+    map<string, list<long> >::iterator it = my_map.find(file_name);
     if(it != my_map.end())
     {
-        list<int> list_temp = it->second;
-        list<int>::iterator list_it = list_temp.begin();
+        list<long> list_temp = it->second;
+        list<long>::iterator list_it = list_temp.begin();
         root = (pnode) * list_it ++;
         return true;
     }
@@ -337,7 +337,7 @@ bool get_tree(const string & file_name, pnode & root, map<string, list<int> > & 
         return false;
 }
 
-bool remove_tree(const string & file_name, pnode & root, map<string, list<int> > & my_map)
+bool remove_tree(const string & file_name, pnode & root, map<string, list<long> > & my_map)
 {
     delete_tree(root);
     my_map.erase(file_name);
@@ -345,9 +345,9 @@ bool remove_tree(const string & file_name, pnode & root, map<string, list<int> >
 }
 
 
-bool clear_tree(map<string, list<int> > & my_map)
+bool clear_tree(map<string, list<long> > & my_map)
 {
-    map<string, list<int> >::iterator it = my_map.begin();
+    map<string, list<long> >::iterator it = my_map.begin();
     while(it != my_map.end())
     {
         node * root = (pnode)((it -> second).front());
